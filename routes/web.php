@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('register', [AuthController::class, 'showRegister'])->name('register.form');
+Route::post('register', [AuthController::class, 'register'])->name('register.store');
