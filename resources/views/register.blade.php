@@ -15,8 +15,8 @@
     @endif
 
     @if($errors->any())
-    <div style="color: red; margin-bottom: 10px; list-style-type: none;">
-        <ul>
+    <div style="color: red; margin-bottom: 10px;">
+        <ul  style="list-style: none;">
             @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
             @endforeach
@@ -31,6 +31,8 @@
         Confirm password: <input type="password" name="password_confirmation"><br>
         <button type="submit">Register</button>
     </form>
+
+    <a href="{{route('login')}}">alreadey have an account</a>
 </body>
 
-</html>
+</html> 
