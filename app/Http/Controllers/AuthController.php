@@ -14,6 +14,13 @@ class AuthController extends Controller
     public function showRegister() {
         return view('register');
     }
+
+    public function dashboard() {
+        if(!Auth::check()) {
+            return redirect()->route('login.form');
+        }
+        return view('dashboard');
+    }
     public function register(Request $request) {
         $request->validate([
             'name' => 'required|max:100',
@@ -48,5 +55,10 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login.form');
     }
 }
